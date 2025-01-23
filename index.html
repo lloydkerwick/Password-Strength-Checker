@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <h1>Password Strength Checker</h1>
+
+    <label for="password" class="password-label">Create Password</label>
+    <input id="password" class="js-password-input" type="password" placeholder="Enter a strong password">
+    <small>Password must be 6-16 characters long and can include letters (upper and lowercase), numbers, and special characters. No spaces.</small>
+
+    <button class="set-password js-set-password">Set Password</button>
+
+    <p class="js-password-strength"></p>
+  </div>
+
+  <script src="scripts.js"></script>
+  
+</body>
+</html>
