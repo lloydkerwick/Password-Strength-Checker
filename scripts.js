@@ -4,7 +4,7 @@ const passwordStrength = document.querySelector('.js-password-strength');
 
 passwordInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
-    setPasswordBtn.focus();
+    setPasswordBtn.click();
   }
 });
 
@@ -20,13 +20,13 @@ function GetpasswordStrength(password) {
   if (/[a-z]/.test(password)) strength++;
   if (/[0-9]/.test(password)) strength++;
   if (/[^A-Za-z0-9]/.test(password)) strength++; 
-  console.log('Password Strength:', strength); 
+ // console.log('Password Strength:', strength); 
   return strength;
 }
 
 setPasswordBtn.addEventListener('click', () => {
   const password = passwordInput.value;
-  console.log('Password entered:', password); 
+ // console.log('Password entered:', password); 
 
   if (!isValidPassword(password)) {
     passwordStrength.textContent = 'Please enter a valid password';
@@ -36,6 +36,9 @@ setPasswordBtn.addEventListener('click', () => {
 
   const strength = GetpasswordStrength(password); 
   let strengthText = '';
+
+  //can use if else statements instead below.
+
   switch (strength) {
     case 5: 
       strengthText = 'Very Strong';
@@ -56,6 +59,21 @@ setPasswordBtn.addEventListener('click', () => {
       strengthText = 'Weak';
       passwordStrength.style.color = 'red';
   }
+
+  /*
+if (strength === 5) {
+  strengthText = 'Very Strong';
+  passwordStrength.style.color = 'green';
+} else if (strength === 4) {
+  strengthText = 'Strong';
+  passwordStrength.style.color = 'limegreen';
+} else if (strength === 3) {
+  strengthText = 'Moderate';
+  passwordStrength.style.color = 'orange';
+} else {
+  strengthText = 'Weak';
+  passwordStrength.style.color = 'red';
+} */
 
   passwordStrength.textContent = `Your password is valid. Password strength: ${strengthText}`;
 });
